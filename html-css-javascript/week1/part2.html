@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dating Website Form</title>
+
+    <style>
+      fieldset {
+        background-color: lightyellow;
+        border: 10px solid yellow;
+        margin-bottom: 10px;
+        width: 720px;
+      }
+
+      label, .label {
+        width: 180px;
+        display: inline-block;
+        text-align: right;
+        vertical-align: top;
+      }
+
+      textarea {
+        width: 360px;
+        height: 50px;
+      }
+
+      .label-radio, .label-checkbox {
+        width: auto;
+      }
+
+      .range-min, .range-max {
+        text-align: center;
+        width: 50px;
+        display: inline-block;
+        color: white;
+      }
+
+      .range-min {
+        background-color: #f44242;
+      }
+
+      .range-max {
+        background-color: #a727ce;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Please Enter Your Details For Our Dating Website!</h1>
+
+    <form method="post" enctype="multipart/form-data" action="https://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php">
+      <!-- image fieldset -->
+      <fieldset>
+        <legend>Your Face</legend>
+
+        <label for="image">Your image:</label>
+        <input type="file" id="image" name="image" required /><br>
+
+        <span class="label">Image preview:</span><img id="preview" />
+      </fieldset>
+
+      <!-- general details fieldset -->
+      <fieldset>
+        <legend>Your General Details</legend>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required /><br>
+
+        <span class="label">Gender:</span>
+        <input type="radio" id="male" name="gender" value="male" required />
+        <label for="male" class="label-radio">Male</label>
+        <input type="radio" id="female" name="gender" value="female" required />
+        <label for="female" class="label-radio">Female</label><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required /><br>
+
+        <label for="dob">Date of birth:</label>
+        <input type="date" id="dob" name="dob" /><br>
+
+        <label for="color">Favorite color:</label>
+        <input type="color" id="color" name="color" /><br>
+
+        <label for="country">Country:</label>
+        <select id="country" name="country">
+          <option value=""></option>
+          <option value="Canada">Canada</option>
+          <option value="China">China</option>
+          <option value="France">France</option>
+          <option value="Germany">Germany</option>
+          <option value="India">India</option>
+        </select>
+      </fieldset>
+
+      <!-- indicators fieldset -->
+      <fieldset>
+        <legend>Your Indicators</legend>
+
+        <label for="height">Height:</label>
+        <div class="range-min">Short</div>
+        <input type="range" id="height" name="height" min="0" max="100" />
+        <div class="range-max">Tall</div><br>
+
+        <label for="salary">Salary:</label>
+        <div class="range-min">Poor</div>
+        <input type="range" id="salary" name="salary" min="0" max="100" />
+        <div class="range-max">Rich</div>
+      </fieldset>
+
+      <!-- contact information fieldset -->
+      <fieldset>
+        <legend>Your Contact Information</legend>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required /><br>
+
+        <label for="mobile">Mobile:</label>
+        <input type="tel" id="mobile" name="mobile" /><br>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address"></textarea><br>
+
+        <span class="label">Method to contact you:</span>
+        <input type="checkbox" id="method-email" name="contact" value="email" />
+        <label for="method-email" class="label-checkbox">Email</label>
+        <input type="checkbox" id="method-whats-app" name="contact" value="whatsapp" />
+        <label for="method-whats-app" class="label-checkbox">Whatsapp</label>
+        <input type="checkbox" id="method-inapp-chat" name="contact" value="inappchat" />
+        <label for="method-inapp-chat" class="label-checkbox">In-app chat</label>
+      </fieldset>
+
+      <input type="submit" value="Submit!" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Color Guessing Game</title>
+    <script type="text/javascript">
+      var colors = ['aqua', 'blueviolet', 'chartreuse', 'darkmagenta', 'lawngreen', 'navy', 'orangered',
+        'red', 'saddlebrown', 'slateblue', 'teal', 'tomato', 'violet', 'yellow'];
+
+      function startGame() {
+        var randomNumber = Math.floor(Math.random() * colors.length);
+        var randomColor = colors[randomNumber];
+
+        var promptText = "I am thinking of one of these colors:" + "\n\n" +
+          "[" + colors.join(", ") + "]\n\n" + "What color am I thinking of?";
+
+        // used for debugging and marking purposes
+        alert('The color to guess: ' + randomColor);
+
+        var attempts = 0;
+        var guessed = false;
+        while(!guessed) {
+          var colorGuessed = prompt(promptText);
+          attempts = attempts + 1;
+
+          // check the color guessed to see if it is the correct one
+          guessed = checkGuess(randomColor, colorGuessed.toLowerCase(), attempts);
+        }
+
+        var congratulationsText = "Congratulations! You have guessed the color!" + "\n\n" +
+          "It took you " + attempts + " guesses to finish the game!" + "\n\n" +
+          "You can see the color in the background. Note for certain browsers, you will need " +
+          "to close the alert window to see the background color update.";
+
+        alert(congratulationsText);
+      }
+
+      function checkGuess(colorExpected, colorGuessed) {
+        if(colors.indexOf(colorGuessed) === -1) {
+          alert('I don’t recognize that color!');
+          return false;
+        } else if(colorGuessed > colorExpected) {
+          alert('Your input is alphabetically higher than mine!');
+          return false;
+        } else if(colorGuessed < colorExpected) {
+          alert('Your input is alphabetically lower than mine!');
+          return false;
+        } else {
+          document.getElementById("body").style.background = colorGuessed;
+          return true;
+        }
+      }
+    </script>
+  </head>
+  <body id="body" onload="startGame()">
+  </body>
+</html>

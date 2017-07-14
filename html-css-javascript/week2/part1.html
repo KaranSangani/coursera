@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Color Guessing Game</title>
+    <script type="text/javascript">
+      function do_game() {
+        var colors = ['aqua', 'blueviolet', 'chartreuse', 'darkmagenta', 'lawngreen', 'navy', 'orangered',
+          'red', 'saddlebrown', 'slateblue', 'teal', 'tomato', 'violet', 'yellow'];
+
+        var randomNumber = Math.floor(Math.random() * colors.length);
+        var randomColor = colors[randomNumber];
+
+        // used for debugging and marking purposes
+        alert('The color to guess: ' + randomColor);
+
+        var promptText = "I am thinking of one of these colors:" + "\n\n" +
+          "[" + colors.join(", ") + "]\n\n" + "What color am I thinking of?";
+
+        var guessed = false;
+        while(!guessed) {
+          var colorGuessed = prompt(promptText);
+
+          if(colorGuessed.toLowerCase() === randomColor) {
+            guessed = true;
+          }
+        }
+      }
+    </script>
+  </head>
+  <body onload="do_game()">
+  </body>
+</html>
